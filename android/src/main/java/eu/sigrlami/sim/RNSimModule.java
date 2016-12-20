@@ -45,19 +45,19 @@ public class RNSimModule extends ReactContextBaseJavaModule {
     PackageManager packageManager = this.reactContext.getPackageManager();
     String packageName            = this.reactContext.getPackageName();
 
-    TelephonyManager telManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+    TelephonyManager telManager = (TelephonyManager) this.reactContext.getSystemService(Context.TELEPHONY_SERVICE);
 
-    int phoneCount = 0;
+    int phoneCount = telManager.getPhoneCount();
     int activeSubscriptionInfoCount = 0;
     int activeSubscriptionInfoCountMax = 0;
 
     try {
-      SubscriptionManager manager = (SubscriptionManager) context.getSystemService(Context.TELEPHONY_SUBSCRIPTION_SERVICE);
-      phoneCount = manager.getPhoneCount();
+      SubscriptionManager manager = (SubscriptionManager) this.reactContext.getSystemService(Context.TELEPHONY_SUBSCRIPTION_SERVICE);
       activeSubscriptionInfoCount = manager.getActiveSubscriptionInfoCount();
       activeSubscriptionInfoCountMax = manager.getActiveSubscriptionInfoCountMax();
 
       List<SubscriptionInfo> subscriptionInfos = manager.getActiveSubscriptionInfoList();
+
       int sub = 1;
       for (SubscriptionInfo subInfo : subscriptionInfos) {
         sub++;
@@ -71,7 +71,7 @@ public class RNSimModule extends ReactContextBaseJavaModule {
         String number            = subInfo.getNumber();
         int simSlotIndex         = subInfo.getSimSlotIndex();
         int subscriptionId       = subInfo.getSubscriptionId();
-        boolean networkRoaming   = telManager.isNetworkRoaming(simSlotIndex);
+        boolean networkRoaming   = telManager.isNetworkRoaming();
         String deviceId          = telManager.getDeviceId(simSlotIndex);
 
         constants.put("carrierName" + sub, carrierName.toString());
