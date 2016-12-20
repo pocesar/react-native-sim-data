@@ -7,12 +7,12 @@ export default {
     return RNSimInfo
   },
   getTelephoneNumber() {
-    return RNSimInfo.phoneNumber1
+    return RNSimInfo.phoneNumber0
   },
   getCarrierName() {
-    return RNSimInfo.carrierName1
+    return RNSimInfo.carrierName0
   },
   getCountryCode() {
-    return RNSimInfo.countryCode1
+    return RNSimInfo.countryCode0
   }
 }

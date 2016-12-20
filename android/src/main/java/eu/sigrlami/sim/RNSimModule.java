@@ -58,9 +58,8 @@ public class RNSimModule extends ReactContextBaseJavaModule {
 
       List<SubscriptionInfo> subscriptionInfos = manager.getActiveSubscriptionInfoList();
 
-      int sub = 1;
+      int sub = 0;
       for (SubscriptionInfo subInfo : subscriptionInfos) {
-        sub++;
         CharSequence carrierName = subInfo.getCarrierName();
         String countryIso        = subInfo.getCountryIso();
         int dataRoaming          = subInfo.getDataRoaming();  // 1 is enabled ; 0 is disabled
@@ -86,6 +85,7 @@ public class RNSimModule extends ReactContextBaseJavaModule {
         constants.put("deviceId"         + sub, deviceId);
         constants.put("simSerialNumber"  + sub, iccId);
         constants.put("subscriptionId"   + sub, subscriptionId);
+        sub++;
       }
     } catch (Exception e) {
       e.printStackTrace();
