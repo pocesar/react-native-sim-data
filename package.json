@@ -21,8 +21,8 @@
     "@types/react-native": "^0.37.6"
   },
   "peerDependencies": {
-    "react": "^15.4.1",
-    "react-native": "^0.40.0 || ^0.41.0"
+    "react": "^15.4.2",
+    "react-native": "*"
   },
   "author": "Sergey Bushnyak <sergey.bushnyak@sigrlami.eu> (https://github.com/sigrlami)",
   "license": "MIT"
