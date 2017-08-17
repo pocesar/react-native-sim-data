@@ -1,3 +1,5 @@
+/// <reference path="extend.d.ts" />
+
 /**
 *  @providesModule RNSimInfo
 */

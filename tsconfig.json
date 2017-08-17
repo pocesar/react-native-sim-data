@@ -5,10 +5,10 @@
         "noImplicitAny": true,
         "sourceMap": false,
         "declaration": true,
-        "inlineSourceMap": true
+        "inlineSourceMap": true,
+        "moduleResolution": "node"
     },
     "files": [
-        "./extend.d.ts",
         "./RNSimInfo.ts",
         "./index.ts"
     ]
