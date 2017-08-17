@@ -1,5 +1,5 @@
 import { IRNSimInfo } from './RNSimInfo';
-declare var _default: {
+declare const _default: {
     getSimInfo(): IRNSimInfo;
     getTelephoneNumber(): string;
     getCarrierName(): string;

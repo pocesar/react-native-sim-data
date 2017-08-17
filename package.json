@@ -1,11 +1,14 @@
 {
-  "name": "react-native-sim",
-  "version": "0.4.0",
-  "description": "",
+  "name": "react-native-sim-data",
+  "version": "1.0.0",
+  "description": "React Native plugin to get the device's SIM data (carrier name, mcc mnc, country code, phone number, etc)",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sigrlami/react-native-sim"
+    "url": "https://github.com/pocesar/react-native-sim-data"
+  },
+  "scripts": {
+    "prepublish": "tsc -p tsconfig.json"
   },
   "typings": "index.d.ts",
   "keywords": [
@@ -17,11 +20,11 @@
     "sim",
     "phone number"
   ],
-  "dependencies": {
-    "@types/react-native": "^0.37.6"
+  "optionalDependencies": {
+    "@types/react-native": "*"
   },
   "peerDependencies": {
-    "react": "^15.4.2",
+    "react": "*",
     "react-native": "*"
   },
   "author": "Sergey Bushnyak <sergey.bushnyak@sigrlami.eu> (https://github.com/sigrlami)",

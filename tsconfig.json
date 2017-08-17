@@ -6,5 +6,10 @@
         "sourceMap": false,
         "declaration": true,
         "inlineSourceMap": true
-    }
+    },
+    "files": [
+        "./extend.d.ts",
+        "./RNSimInfo.ts",
+        "./index.ts"
+    ]
 }
