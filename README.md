@@ -1,13 +1,14 @@
 [![Build Status](https://travis-ci.org/pocesar/react-native-sim-data.svg?branch=master)](https://travis-ci.org/pocesar/react-native-sim-data) [![npm version](https://badge.fury.io/js/react-native-sim-data.svg)](https://badge.fury.io/js/react-native-sim-data)
 
-# react-native-sim
+# react-native-sim-data
 
 React Native plugin to get the device's SIM data (carrier name, mcc mnc, country code, phone number, etc)
 
 ## Installation
 
 ```
-npm i react-native-sim-data
+$ npm i react-native-sim-data
+$ react-native link react-native-sim-data
 ```
 
 ## Supported Platforms
@@ -17,9 +18,9 @@ npm i react-native-sim-data
 ## Usage
 
 ```es6
-import RNSimInfo from 'react-native-sim'
+import RNSimData from 'react-native-sim-data'
 
-RNSimInfo.getSimInfo()
+RNSimData.getSimInfo()
 /**
   the object has the following info (change 0 to access more than 1 SIM):
 
@@ -37,12 +38,12 @@ RNSimInfo.getSimInfo()
   subscriptionId0: string;
 */
 
-//shortcut for RNSimInfo.getSimInfo().phoneNumber0
-RNSimInfo.getTelephoneNumber()
-//shortcut for RNSimInfo.getSimInfo().carrierName0
-RNSimInfo.getCarrierName()
-//shortcut for RNSimInfo.getSimInfo().countryCode0
-RNSimInfo.getCountryCode()
+//shortcut for RNSimData.getSimInfo().phoneNumber0
+RNSimData.getTelephoneNumber()
+//shortcut for RNSimData.getSimInfo().carrierName0
+RNSimData.getCarrierName()
+//shortcut for RNSimData.getSimInfo().countryCode0
+RNSimData.getCountryCode()
 ```
 
 ### Caveats
