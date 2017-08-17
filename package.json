@@ -1,6 +1,6 @@
 {
   "name": "react-native-sim-data",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React Native plugin to get the device's SIM data (carrier name, mcc mnc, country code, phone number, etc)",
   "main": "index.js",
   "repository": {
