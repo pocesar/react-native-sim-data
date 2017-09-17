@@ -34,19 +34,19 @@ export interface RNSimData {
   subscriptionId1: string;
 }
 
-const RNSimInfo: RNSimData = NativeModules.RNSimData
+const RNSimData: RNSimData = NativeModules.RNSimData
 
 export default {
   getSimInfo() {
-    return RNSimInfo
+    return RNSimData
   },
   getTelephoneNumber() {
-    return RNSimInfo.phoneNumber0
+    return RNSimData.phoneNumber0
   },
   getCarrierName() {
-    return RNSimInfo.carrierName0
+    return RNSimData.carrierName0
   },
   getCountryCode() {
-    return RNSimInfo.countryCode0
+    return RNSimData.countryCode0
   }
 }
