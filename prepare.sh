@@ -1,7 +1,7 @@
 #!/bin/bash
 
 npm install @types/react-native
-npm run prepublish
+npm run prepublishOnly
 npm link
 cd Example
 npm install

@@ -8,7 +8,7 @@
     "url": "https://github.com/pocesar/react-native-sim-data"
   },
   "scripts": {
-    "prepublish": "tsc -p tsconfig.json"
+    "prepublishOnly": "tsc -p tsconfig.json"
   },
   "typings": "index.d.ts",
   "keywords": [
