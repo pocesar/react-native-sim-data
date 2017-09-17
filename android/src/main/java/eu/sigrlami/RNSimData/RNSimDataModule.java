@@ -1,30 +1,24 @@
-package eu.sigrlami.sim;
+package eu.sigrlami.RNSimData;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
 
-import android.os.Build;
-import android.Manifest;
-import android.content.Intent;
 import android.content.Context;
 import android.telephony.TelephonyManager;
 import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
 
-import com.facebook.react.bridge.Arguments;
-import com.facebook.react.bridge.NativeModule;
-import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
+import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.Callback;
 
-import javax.annotation.Nullable;
-
-public class RNSimData extends ReactContextBaseJavaModule {
+public class RNSimDataModule extends ReactContextBaseJavaModule {
 
   ReactApplicationContext reactContext;
 
-  public RNSimData(ReactApplicationContext reactContext) {
+  public RNSimDataModule(ReactApplicationContext reactContext) {
     super(reactContext);
     this.reactContext = reactContext;
   }
