@@ -34,7 +34,7 @@ public class RNSimDataModule extends ReactContextBaseJavaModule {
     final Map<String, Object> constants = new HashMap<>();
 
     try {
-      TelephonyManager telManager = this.reactContext.getSystemService(Context.TELEPHONY_SERVICE);
+      TelephonyManager telManager = (TelephonyManager) this.reactContext.getSystemService(Context.TELEPHONY_SERVICE);
 
       SubscriptionManager manager = (SubscriptionManager) this.reactContext.getSystemService(Context.TELEPHONY_SUBSCRIPTION_SERVICE);
       List<SubscriptionInfo> subscriptionInfos = manager.getActiveSubscriptionInfoList();
