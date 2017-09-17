@@ -1,6 +1,23 @@
-language: node_js
+language: android
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
 before_install:
-  - npm i typescript@next -g --progress=false
-script: npm run prepublish
+  - nvm install 8
+  - node --version
+install:
+  - npm install
+before_script:
+  - npm i typescript@next react-native-cli -g --progress=false
+script: ./prepare.sh
+android:
+  components:
+    - build-tools-23.0.1
+    - android-23
+    - extra-android-m2repository
+    - extra-google-google_play_services
+    - extra-google-m2repository
+    - addon-google_apis-google-16
 node_js:
   - "8"

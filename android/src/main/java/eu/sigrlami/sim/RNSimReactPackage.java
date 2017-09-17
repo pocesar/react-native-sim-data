@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 import com.facebook.react.ReactPackage;
-import eu.sigrlami.sim.RNSimModule;
+import eu.sigrlami.sim.RNSimData;
 
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -18,7 +18,7 @@ public class RNSimReactPackage implements ReactPackage {
   @Override
   public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
     List<NativeModule> modules = new ArrayList<>();
-    modules.add(new RNSimModule(reactContext));
+    modules.add(new RNSimData(reactContext));
     return modules;
   }
 

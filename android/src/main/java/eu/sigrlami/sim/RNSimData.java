@@ -1,16 +1,13 @@
 package eu.sigrlami.sim;
 
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 import java.util.List;
-import java.util.TimeZone;
 
 import android.os.Build;
 import android.Manifest;
 import android.content.Intent;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.telephony.TelephonyManager;
 import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
@@ -23,39 +20,29 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 
 import javax.annotation.Nullable;
 
-public class RNSimModule extends ReactContextBaseJavaModule {
+public class RNSimData extends ReactContextBaseJavaModule {
 
   ReactApplicationContext reactContext;
 
-  public RNSimModule(ReactApplicationContext reactContext) {
+  public RNSimData(ReactApplicationContext reactContext) {
     super(reactContext);
     this.reactContext = reactContext;
   }
 
   @Override
   public String getName() {
-    return "RNSimInfo";
+    return "RNSimData";
   }
 
   @Override
-  public @Nullable Map<String, Object> getConstants() {
+  public Map<String, Object> getConstants() {
 
     final Map<String, Object> constants = new HashMap<>();
 
-    PackageManager packageManager = this.reactContext.getPackageManager();
-    String packageName            = this.reactContext.getPackageName();
-
-    TelephonyManager telManager = (TelephonyManager) this.reactContext.getSystemService(Context.TELEPHONY_SERVICE);
-
-    int phoneCount = telManager.getPhoneCount();
-    int activeSubscriptionInfoCount = 0;
-    int activeSubscriptionInfoCountMax = 0;
-
     try {
-      SubscriptionManager manager = (SubscriptionManager) this.reactContext.getSystemService(Context.TELEPHONY_SUBSCRIPTION_SERVICE);
-      activeSubscriptionInfoCount = manager.getActiveSubscriptionInfoCount();
-      activeSubscriptionInfoCountMax = manager.getActiveSubscriptionInfoCountMax();
+      TelephonyManager telManager = this.reactContext.getSystemService(Context.TELEPHONY_SERVICE)
 
+      SubscriptionManager manager = (SubscriptionManager) this.reactContext.getSystemService(Context.TELEPHONY_SUBSCRIPTION_SERVICE);
       List<SubscriptionInfo> subscriptionInfos = manager.getActiveSubscriptionInfoList();
 
       int sub = 0;
@@ -71,7 +58,7 @@ public class RNSimModule extends ReactContextBaseJavaModule {
         int simSlotIndex         = subInfo.getSimSlotIndex();
         int subscriptionId       = subInfo.getSubscriptionId();
         boolean networkRoaming   = telManager.isNetworkRoaming();
-        String deviceId          = telManager.getDeviceId(simSlotIndex);
+        String deviceId          = telManager.getImei(simSlotIndex) || telManager.getMeid(simSlotIndex);
 
         constants.put("carrierName" + sub, carrierName.toString());
         constants.put("displayName" + sub, displayName.toString());

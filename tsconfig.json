@@ -4,12 +4,13 @@
         "target": "es6",
         "noImplicitAny": true,
         "sourceMap": false,
+        "strict": true,
+        "removeComments": false,
         "declaration": true,
         "inlineSourceMap": true,
         "moduleResolution": "node"
     },
     "files": [
-        "./RNSimInfo.ts",
         "./index.ts"
     ]
 }

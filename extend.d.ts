@@ -1,8 +1,8 @@
-import { IRNSimInfo } from './RNSimInfo'
+import { RNSimData } from './index'
 import 'react-native'
 
 declare module 'react-native' {
   export interface NativeModulesStatic {
-    RNSimInfo: IRNSimInfo
+    RNSimData: RNSimData
   }
 }
