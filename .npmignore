@@ -1,3 +1,6 @@
 tsconfig.json
 index.ts
 Example
+prepare.sh
+.travis.yml
+README.md
