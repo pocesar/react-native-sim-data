@@ -52,7 +52,8 @@ public class RNSimDataModule extends ReactContextBaseJavaModule {
         int simSlotIndex         = subInfo.getSimSlotIndex();
         int subscriptionId       = subInfo.getSubscriptionId();
         boolean networkRoaming   = telManager.isNetworkRoaming();
-        String deviceId          = telManager.getImei(simSlotIndex) || telManager.getMeid(simSlotIndex);
+        String deviceId          = telManager.getDeviceId(simSlotIndex);
+        //String deviceId          = telManager.getImei(simSlotIndex) || telManager.getMeid(simSlotIndex);
 
         constants.put("carrierName" + sub, carrierName.toString());
         constants.put("displayName" + sub, displayName.toString());
