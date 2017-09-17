@@ -1,6 +1,3 @@
-/**
-*  @providesModule react-native-sim-data
-*/
 /// <reference path="extend.d.ts" />
 
 'use strict'
