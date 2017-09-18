@@ -31,7 +31,7 @@ export interface RNSimData {
   subscriptionId1: string;
 }
 
-const RNSimData: RNSimData = NativeModules.RNSimData
+const RNSimData = NativeModules.RNSimDataModule
 
 export default {
   getSimInfo() {

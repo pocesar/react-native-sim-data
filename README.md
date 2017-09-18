@@ -20,7 +20,7 @@ $ react-native link react-native-sim-data
 ```es6
 import RNSimData from 'react-native-sim-data'
 
-RNSimData.getSimInfo()
+RNSimData.getSimInfo().deviceId0
 /**
   the object has the following info (change 0 to access more than 1 SIM):
 
@@ -45,6 +45,9 @@ RNSimData.getCarrierName()
 //shortcut for RNSimData.getSimInfo().countryCode0
 RNSimData.getCountryCode()
 ```
+
+NOTE: React Native "Modules", when having only constants, work with getters, and the result of `getSimInfo()` is
+undefined, you need to access the properties to get any info
 
 ### Caveats
 

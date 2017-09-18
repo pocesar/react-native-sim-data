@@ -1,4 +1,4 @@
-package eu.sigrlami.RNSimData;
+package eu.sigrlami.rnsimdata;
 
 import java.util.Arrays;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 import com.facebook.react.bridge.JavaScriptModule;
 
-public class RNSimData implements ReactPackage {
+public class RNSimDataReactPackage implements ReactPackage {
 
   @Override
   public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {

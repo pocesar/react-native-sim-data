@@ -4,6 +4,8 @@ node_modules
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
+android/build
+
 # Package Files #
 *.jar
 !gradle/wrapper/gradle-wrapper.jar

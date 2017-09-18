@@ -1,4 +1,4 @@
-package eu.sigrlami.RNSimData;
+package eu.sigrlami.rnsimdata;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,7 +25,7 @@ public class RNSimDataModule extends ReactContextBaseJavaModule {
 
   @Override
   public String getName() {
-    return "RNSimData";
+    return "RNSimDataModule";
   }
 
   @Override
