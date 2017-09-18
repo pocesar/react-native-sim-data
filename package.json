@@ -21,7 +21,7 @@
     "phone number"
   ],
   "optionalDependencies": {
-    "@types/react-native": "0.48.4"
+    "@types/react-native": "*"
   },
   "peerDependencies": {
     "react": "*",
