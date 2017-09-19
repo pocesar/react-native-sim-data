@@ -55,6 +55,8 @@ Might crash if tries to use in a phone without any SIM cards.
 
 ### Permissions
 
+**WARNING: Minimum API Level is 22**
+
 This plugin uses two different Android APIs to receive SIM data:
 - `TelephonyManager` (since API level 1)
 - `SubscriptionManager` (since API level 22)
@@ -64,5 +66,7 @@ Since Android 6 (API level 23) a few methods of `TelephonyManager` require permi
 All methods of `SubscriptionManager` require permission `READ_PHONE_STATE`.
 
 `SubscriptionManager` is able to access multiple SIM data.
+
+You'll also need to include `compile 'com.google.android.gms:play-services-gcm:+'` in your `android/app/build.gradle` (or any version that suits you)
 
 
