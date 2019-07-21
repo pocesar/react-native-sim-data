@@ -1,6 +1,6 @@
 #!/bin/bash
 
-npm install @types/react-native
+npm install react react-native @types/react @types/react-native --no-save
 npm run compile
 npm link
 cd Example

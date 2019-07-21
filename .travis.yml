@@ -5,12 +5,12 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
 before_install:
-  #- yes | sdkmanager --licenses
+  - yes | $ANDROID_HOME/tools/bin/sdkmanager "platforms;android-28"
+  - yes | $ANDROID_HOME/tools/bin/sdkmanager "build-tools;28.0.3"
   - nvm install 12
   - node --version
   - npm i typescript react-native-cli -g --progress=false
 install:
-  - npm install
   - chmod +x ./prepare.sh
 script: ./prepare.sh
 android:
