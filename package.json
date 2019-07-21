@@ -10,7 +10,7 @@
   "scripts": {
     "prepublishOnly": "tsc -p tsconfig.json"
   },
-  "typings": "index.d.ts",
+  "typings": "extend.d.ts",
   "keywords": [
     "react-component",
     "react-native",
