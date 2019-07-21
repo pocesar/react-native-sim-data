@@ -21,20 +21,18 @@ android:
     - platform-tools
 
     # The BuildTools version used by your project
-    - build-tools-$ANDROID_BUILD_TOOLS
-    - android-$ANDROID_API
+    - build-tools-26.0.1
+    - android-26
 
     # Additional components
     - extra-google-google_play_services
     - extra-google-m2repository
     - extra-android-m2repository
-    - addon-google_apis-google-$ANDROID_API
+    - addon-google_apis-google-24
 
     # Specify at least one system image,
     # if you need to run emulator(s) during your tests
-    - sys-img-armeabi-v7a-addon-google_apis-google-$ANDROID_API
-
-    # Support library
+    - sys-img-armeabi-v7a-google_apis-25
     - extra-android-support
 
   licenses:
