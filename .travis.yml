@@ -13,12 +13,31 @@ install:
   - chmod +x ./prepare.sh
 script: ./prepare.sh
 android:
-  components:
-    - build-tools-26.0.3
-    - android-26
-    - extra-android-m2repository
+    # Uncomment the lines below if you want to
+    # use the latest revision of Android SDK Tools
+    - tools
+    - platform-tools
+
+    # The BuildTools version used by your project
+    - build-tools-$ANDROID_BUILD_TOOLS
+    - android-$ANDROID_API
+
+    # Additional components
     - extra-google-google_play_services
     - extra-google-m2repository
-    - addon-google_apis-google-19
+    - extra-android-m2repository
+    - addon-google_apis-google-$ANDROID_API
+
+    # Specify at least one system image,
+    # if you need to run emulator(s) during your tests
+    - sys-img-armeabi-v7a-addon-google_apis-google-$ANDROID_API
+
+    # Support library
+    - extra-android-support
+
+  licenses:
+    - android-sdk-preview-license-.+
+    - android-sdk-license-.+
+    - google-gdk-license-.+
 node_js:
   - "12"
