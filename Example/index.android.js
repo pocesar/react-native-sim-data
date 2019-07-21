@@ -1,7 +1,5 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
+ * @format
  */
 
 import React, { Component } from 'react';
@@ -44,4 +42,6 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('Example', () => Example);
+import {name as appName} from './app.json';
+
+AppRegistry.registerComponent(appName, () => Example);

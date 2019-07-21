@@ -1,20 +1,23 @@
 {
+	"name": "Example",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"run-app": "react-native --help",
-		"upgrade": "react-native upgrade",
+    "start": "react-native start",
 		"test": "jest"
 	},
 	"peerDependencies": {
 		"react-native-sim-data": "*"
 	},
 	"dependencies": {
-		"react": "16.8.6",
-		"react-native": "0.60.4"
+		"react": "^16.8.6",
+		"react-native": "^0.60.4"
 	},
 	"devDependencies": {
+		"@babel/core": "^7.5.0",
+    "@babel/runtime": "^7.5.0",
+    "@react-native-community/eslint-config": "^0.0.3",
+    "metro-react-native-babel-preset": "^0.54.1",
 		"react-native-cli": "^2.0.1",
 		"babel-jest": "^24.8.0",
 		"babel-preset-react-native": "^4.0.1",
