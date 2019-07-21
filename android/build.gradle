@@ -19,6 +19,6 @@ android {
 }
 
 dependencies {
-    provided 'com.facebook.react:react-native:+'
-    provided 'com.google.android.gms:play-services-gcm:+'
+    compileOnly 'com.facebook.react:react-native:+'
+    compileOnly 'com.google.android.gms:play-services-gcm:+'
 }
