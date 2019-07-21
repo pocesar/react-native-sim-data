@@ -7,5 +7,5 @@ cd Example
 npm install
 npm link react-native-sim-data
 #react-native link react-native-sim-data
-cd android && chmod +x gradlew && ./gradlew assembleDebug && ./gradlew assembleRelease && cd ..
+cd android && chmod +x gradlew && ./gradlew clean && ./gradlew assembleDebug && cd ..
 npm test
