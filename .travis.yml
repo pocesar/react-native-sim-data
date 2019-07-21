@@ -5,7 +5,7 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
 before_install:
-  - yes | sdkmanager --licenses
+  #- yes | sdkmanager --licenses
   - nvm install 12
   - node --version
   - npm i typescript react-native-cli -g --progress=false
