@@ -67,6 +67,6 @@ All methods of `SubscriptionManager` require permission `READ_PHONE_STATE`.
 
 `SubscriptionManager` is able to access multiple SIM data.
 
-You'll also need to include `compile 'com.google.android.gms:play-services-gcm:+'` in your `android/app/build.gradle` (or any version that suits you)
+You'll also need to include `implementation 'com.google.android.gms:play-services-gcm:+'` in your `android/app/build.gradle` (or any version that suits you)
 
 

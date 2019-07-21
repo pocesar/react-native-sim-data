@@ -16,4 +16,5 @@ android/build
 hs_err_pid*
 
 index.d.ts
+index.js.map
 index.js

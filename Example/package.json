@@ -1,20 +1,25 @@
 {
-	"name": "Example",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
+		"run-app": "react-native --help",
+		"upgrade": "react-native upgrade",
 		"test": "jest"
 	},
+	"peerDependencies": {
+		"react-native-sim-data": "*"
+	},
 	"dependencies": {
-		"react": "16.0.0-alpha.12",
-		"react-native": "0.48.3"
+		"react": "16.8.6",
+		"react-native": "0.60.4"
 	},
 	"devDependencies": {
-		"babel-jest": "21.0.2",
-		"babel-preset-react-native": "4.0.0",
-		"jest": "21.1.0",
-		"react-test-renderer": "16.0.0-alpha.12"
+		"react-native-cli": "^2.0.1",
+		"babel-jest": "^24.8.0",
+		"babel-preset-react-native": "^4.0.1",
+		"jest": "^24.8.0",
+		"react-test-renderer": "^16.8.6"
 	},
 	"jest": {
 		"preset": "react-native"
