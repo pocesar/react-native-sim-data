@@ -1,10 +1,13 @@
 /**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
  * @format
+ * @flow
  */
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   View
@@ -41,7 +44,3 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
-
-import {name as appName} from './app.json';
-
-AppRegistry.registerComponent(appName, () => Example);
