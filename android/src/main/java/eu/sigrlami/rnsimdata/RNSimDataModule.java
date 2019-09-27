@@ -3,6 +3,8 @@ package eu.sigrlami.rnsimdata;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
+import java.util.LinkedList;
+import java.util.ArrayList;
 
 import android.content.Context;
 import android.telephony.TelephonyManager;
@@ -13,6 +15,7 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
+import com.facebook.react.bridge.WritableNativeArray;
 
 public class RNSimDataModule extends ReactContextBaseJavaModule {
 
@@ -27,6 +30,26 @@ public class RNSimDataModule extends ReactContextBaseJavaModule {
   public String getName() {
     return "RNSimDataModule";
   }
+
+  @ReactMethod
+  public void getRealtimeIccid(Callback callback) {
+    try {
+      TelephonyManager telManager = (TelephonyManager) this.reactContext.getSystemService(Context.TELEPHONY_SERVICE);
+      WritableNativeArray result = new WritableNativeArray();
+
+      SubscriptionManager manager = (SubscriptionManager) this.reactContext.getSystemService(Context.TELEPHONY_SUBSCRIPTION_SERVICE);
+      List<SubscriptionInfo> subscriptionInfos = manager.getActiveSubscriptionInfoList();
+      for (SubscriptionInfo subInfo : subscriptionInfos) {
+          String iccId             = subInfo.getIccId();
+          result.pushString(iccId);
+      }
+      callback.invoke(result);
+    } catch (Exception e) {
+      e.printStackTrace();
+      callback.invoke(new String(""));
+    }
+  }
+
 
   @Override
   public Map<String, Object> getConstants() {
