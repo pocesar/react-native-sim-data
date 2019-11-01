@@ -32,6 +32,25 @@ public class RNSimDataModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
+  public void getRealtimeMcc(Callback callback) {
+    try {
+      TelephonyManager telManager = (TelephonyManager) this.reactContext.getSystemService(Context.TELEPHONY_SERVICE);
+      WritableNativeArray result = new WritableNativeArray();
+
+      SubscriptionManager manager = (SubscriptionManager) this.reactContext.getSystemService(Context.TELEPHONY_SUBSCRIPTION_SERVICE);
+      List<SubscriptionInfo> subscriptionInfos = manager.getActiveSubscriptionInfoList();
+      for (SubscriptionInfo subInfo : subscriptionInfos) {
+          int mcc             = subInfo.getMcc();
+          result.pushString(mcc);
+      }
+      callback.invoke(result);
+    } catch (Exception e) {
+      e.printStackTrace();
+      callback.invoke(new String(""));
+    }
+  }
+
+  @ReactMethod
   public void getRealtimeIccid(Callback callback) {
     try {
       TelephonyManager telManager = (TelephonyManager) this.reactContext.getSystemService(Context.TELEPHONY_SERVICE);

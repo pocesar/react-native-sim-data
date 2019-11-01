@@ -10,6 +10,9 @@ exports.default = {
     getTelephoneNumber() {
         return RNSimData.phoneNumber0;
     },
+    getRealtimeMcc(callback) {
+        RNSimData.getRealtimeMcc(callback);
+    },
     getRealtimeIccids(callback) {
         RNSimData.getRealtimeIccid(callback);
     },
