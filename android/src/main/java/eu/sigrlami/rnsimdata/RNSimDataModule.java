@@ -41,7 +41,7 @@ public class RNSimDataModule extends ReactContextBaseJavaModule {
       List<SubscriptionInfo> subscriptionInfos = manager.getActiveSubscriptionInfoList();
       for (SubscriptionInfo subInfo : subscriptionInfos) {
           int mcc             = subInfo.getMcc();
-          result.pushString(mcc);
+          result.pushString(Integer.toString(mcc));
       }
       callback.invoke(result);
     } catch (Exception e) {
