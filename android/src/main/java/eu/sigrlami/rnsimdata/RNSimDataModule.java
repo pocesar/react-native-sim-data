@@ -16,6 +16,7 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.WritableNativeArray;
+import com.facebook.react.bridge.WritableNativeMap;
 
 public class RNSimDataModule extends ReactContextBaseJavaModule {
 
@@ -32,26 +33,7 @@ public class RNSimDataModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void getRealtimeMcc(Callback callback) {
-    try {
-      TelephonyManager telManager = (TelephonyManager) this.reactContext.getSystemService(Context.TELEPHONY_SERVICE);
-      WritableNativeArray result = new WritableNativeArray();
-
-      SubscriptionManager manager = (SubscriptionManager) this.reactContext.getSystemService(Context.TELEPHONY_SUBSCRIPTION_SERVICE);
-      List<SubscriptionInfo> subscriptionInfos = manager.getActiveSubscriptionInfoList();
-      for (SubscriptionInfo subInfo : subscriptionInfos) {
-          int mcc             = subInfo.getMcc();
-          result.pushString(Integer.toString(mcc));
-      }
-      callback.invoke(result);
-    } catch (Exception e) {
-      e.printStackTrace();
-      callback.invoke(new String(""));
-    }
-  }
-
-  @ReactMethod
-  public void getRealtimeIccid(Callback callback) {
+  public void getRealtimeInfo(Callback callback) {
     try {
       TelephonyManager telManager = (TelephonyManager) this.reactContext.getSystemService(Context.TELEPHONY_SERVICE);
       WritableNativeArray result = new WritableNativeArray();
@@ -60,7 +42,22 @@ public class RNSimDataModule extends ReactContextBaseJavaModule {
       List<SubscriptionInfo> subscriptionInfos = manager.getActiveSubscriptionInfoList();
       for (SubscriptionInfo subInfo : subscriptionInfos) {
           String iccId             = subInfo.getIccId();
-          result.pushString(iccId);
+          int mcc             = subInfo.getMcc();
+          int mnc             = subInfo.getMnc();
+          int simSlotIndex         = subInfo.getSimSlotIndex();
+          CharSequence carrierName = subInfo.getCarrierName();
+          String networkCountry = telManager.getNetworkCountryIso();
+
+          WritableNativeMap map = new WritableNativeMap();
+
+          map.putString("iccid", iccId);
+          map.putString("mcc", Integer.toString(mcc));
+          map.putString("mnc", Integer.toString(mnc));
+          map.putString("carrierName", carrierName.toString());
+          map.putString("simSlotIndex", Integer.toString(simSlotIndex));
+          map.putString("networkCountry", networkCountry);
+
+          result.pushMap(map);
       }
       callback.invoke(result);
     } catch (Exception e) {
@@ -68,7 +65,6 @@ public class RNSimDataModule extends ReactContextBaseJavaModule {
       callback.invoke(new String(""));
     }
   }
-
 
   @Override
   public Map<String, Object> getConstants() {
