@@ -3,28 +3,76 @@
  * https://github.com/facebook/react-native
  *
  * @format
- * @flow
+ * @flow strict-local
  */
 
-import React, { Component } from 'react';
+import React from 'react';
 import {
+  SafeAreaView,
   StyleSheet,
+  ScrollView,
+  View,
   Text,
-  View
+  StatusBar,
+  PermissionsAndroid,
 } from 'react-native';
+import ImagePicker from 'react-native-image-picker';
 import RNSimData from 'react-native-sim-data'
 
-export default class Example extends Component {
+import {
+  Header,
+  LearnMoreLinks,
+  Colors,
+  DebugInstructions,
+  ReloadInstructions,
+} from 'react-native/Libraries/NewAppScreen';
+
+class App extends React.Component {
+  state = {
+    data: {}
+  }
+  componentDidMount() {
+    this.requestPermissions()
+    this.getSimData()
+  }
+
+  getSimData() {
+    const data = RNSimData.getSimInfo();
+    const extracted = {
+      isNetworkRoaming0: data.isNetworkRoaming0,
+      mcc0: data.mcc0,
+      subscriptionId0: data.subscriptionId0,
+      simSerialNumber0: data.simSerialNumber0,
+      carrierName0: data.carrierName0,
+      isDataRoaming0: data.isDataRoaming0,
+      phoneNumber0: data.phoneNumber0,
+      mnc0: data.mnc0,
+      simSlotIndex0: data.simSlotIndex0,
+      deviceId0: data.deviceId0,
+      displayName0: data.displayName0,
+      countryCode0: data.countryCode0
+    }
+    this.setState({ extracted });
+  }
+
+  requestPermissions() {
+    PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.READ_PHONE_STATE)
+  }
+
   render() {
     return (
+
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          {JSON.stringify(RNSimData.getSimInfo())}
+          data: {this.state.extracted && JSON.stringify(this.state.extracted, null, 2)}
         </Text>
       </View>
     );
   }
 }
+
+export default App;
+
 
 const styles = StyleSheet.create({
   container: {
