@@ -49,6 +49,17 @@ RNSimData.getCountryCode()
 NOTE: React Native "Modules", when having only constants, work with getters, and the result of `getSimInfo()` is
 undefined, you need to access the properties to get any info
 
+### Realtime methods
+These methods query SimInfo and callback with result.
+```
+RNSimData.getRealtimeIccid(iccids => {
+    if (!iccids)
+        console.log('get iccids call failed');
+    for (i in iccids)
+        console.log(iccids[i]);
+})
+```
+
 ### Caveats
 
 Might crash if tries to use in a phone without any SIM cards.
